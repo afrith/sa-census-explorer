@@ -8,7 +8,64 @@ const layout = {
   'line-join': 'round'
 }
 
+const fillColor = ['step',
+  ['/',
+    ['get', 'population'],
+    ['get', 'area']
+  ],
+  '#ffffcc',
+  3, '#ffeda0',
+  10, '#fed976',
+  30, '#feb24c',
+  100, '#fd8d3c',
+  300, '#fc4e2a',
+  1000, '#e31a1c',
+  3000, '#bd0026',
+  10000, '#800026'
+]
+
 const layers = [
+  {
+    id: 'subplace-fill',
+    'source-layer': 'subplace',
+    minzoom: 9,
+    type: 'fill',
+    paint: {
+      'fill-color': fillColor,
+      'fill-opacity': 0.5
+    }
+  },
+  {
+    id: 'mainplace-fill',
+    'source-layer': 'mainplace',
+    minzoom: 7,
+    maxzoom: 9,
+    type: 'fill',
+    paint: {
+      'fill-color': fillColor,
+      'fill-opacity': 0.5
+    }
+  },
+  {
+    id: 'local-fill',
+    'source-layer': 'local',
+    maxzoom: 7,
+    type: 'fill',
+    paint: {
+      'fill-color': fillColor,
+      'fill-opacity': 0.5
+    }
+  },
+  {
+    id: 'metro-fill',
+    'source-layer': 'metro',
+    maxzoom: 7,
+    type: 'fill',
+    paint: {
+      'fill-color': fillColor,
+      'fill-opacity': 0.5
+    }
+  },
   {
     id: 'subplace-line',
     'source-layer': 'subplace',
@@ -16,7 +73,7 @@ const layers = [
     type: 'line',
     layout,
     paint: {
-      'line-color': '#4daf4a',
+      'line-color': '#7f7f7f',
       'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 9, 1, 12, 2]
     }
   },
@@ -27,7 +84,7 @@ const layers = [
     type: 'line',
     layout,
     paint: {
-      'line-color': '#4daf4a',
+      'line-color': '#7f7f7f',
       'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 7, 1, 9, 2, 12, 4]
     }
   },
@@ -37,7 +94,7 @@ const layers = [
     type: 'line',
     layout,
     paint: {
-      'line-color': '#377eb8',
+      'line-color': '#7f7f7f',
       'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 5, 1, 7, 2, 9, 4]
     }
   },
@@ -47,7 +104,7 @@ const layers = [
     type: 'line',
     layout,
     paint: {
-      'line-color': '#377eb8',
+      'line-color': '#7f7f7f',
       'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 5, 1, 7, 2, 9, 4]
     }
   },
@@ -57,7 +114,7 @@ const layers = [
     type: 'line',
     layout,
     paint: {
-      'line-color': '#000000',
+      'line-color': '#7f7f7f',
       'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 5, 2, 7, 4]
     }
   }
