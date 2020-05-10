@@ -17,7 +17,7 @@ const layers = [
     layout,
     paint: {
       'line-color': '#4daf4a',
-      'line-width': 0.2
+      'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 9, 1, 12, 2]
     }
   },
   {
@@ -28,7 +28,7 @@ const layers = [
     layout,
     paint: {
       'line-color': '#4daf4a',
-      'line-width': 0.5
+      'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 7, 1, 9, 2, 12, 4]
     }
   },
   {
@@ -38,17 +38,7 @@ const layers = [
     layout,
     paint: {
       'line-color': '#377eb8',
-      'line-width': 1
-    }
-  },
-  {
-    id: 'district-line',
-    'source-layer': 'district',
-    type: 'line',
-    layout,
-    paint: {
-      'line-color': '#1f78b4',
-      'line-width': 2
+      'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 5, 1, 7, 2, 9, 4]
     }
   },
   {
@@ -58,7 +48,7 @@ const layers = [
     layout,
     paint: {
       'line-color': '#377eb8',
-      'line-width': 2
+      'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 5, 1, 7, 2, 9, 4]
     }
   },
   {
@@ -68,7 +58,7 @@ const layers = [
     layout,
     paint: {
       'line-color': '#000000',
-      'line-width': 3
+      'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 5, 2, 7, 4]
     }
   }
 ]
