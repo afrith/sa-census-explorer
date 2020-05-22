@@ -26,14 +26,27 @@ const fillColor = ['step',
 
 const layers = [
   {
-    id: 'subplace-fill',
-    'source-layer': 'subplace',
-    minzoom: 9,
+    id: 'sa-fill',
+    'source-layer': 'sa',
+    minzoom: 11,
     type: 'fill',
     paint: {
       'fill-color': fillColor,
       'fill-opacity': 0.5
-    }
+    },
+    beforeId: 'highway_name_other'
+  },
+  {
+    id: 'subplace-fill',
+    'source-layer': 'subplace',
+    minzoom: 9,
+    maxzoom: 11,
+    type: 'fill',
+    paint: {
+      'fill-color': fillColor,
+      'fill-opacity': 0.5
+    },
+    beforeId: 'highway_name_other'
   },
   {
     id: 'mainplace-fill',
@@ -44,7 +57,8 @@ const layers = [
     paint: {
       'fill-color': fillColor,
       'fill-opacity': 0.5
-    }
+    },
+    beforeId: 'highway_name_other'
   },
   {
     id: 'local-fill',
@@ -54,7 +68,8 @@ const layers = [
     paint: {
       'fill-color': fillColor,
       'fill-opacity': 0.5
-    }
+    },
+    beforeId: 'highway_name_other'
   },
   {
     id: 'metro-fill',
@@ -64,7 +79,20 @@ const layers = [
     paint: {
       'fill-color': fillColor,
       'fill-opacity': 0.5
-    }
+    },
+    beforeId: 'highway_name_other'
+  },
+  {
+    id: 'sa-line',
+    'source-layer': 'sa',
+    minzoom: 9,
+    type: 'line',
+    layout,
+    paint: {
+      'line-color': '#5f5f5f',
+      'line-width': 0.5
+    },
+    beforeId: 'highway_name_other'
   },
   {
     id: 'subplace-line',
@@ -73,9 +101,10 @@ const layers = [
     type: 'line',
     layout,
     paint: {
-      'line-color': '#7f7f7f',
-      'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 9, 1, 12, 2]
-    }
+      'line-color': '#5f5f5f',
+      'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 9, 0.5, 11, 1]
+    },
+    beforeId: 'highway_name_other'
   },
   {
     id: 'mainplace-line',
@@ -84,9 +113,10 @@ const layers = [
     type: 'line',
     layout,
     paint: {
-      'line-color': '#7f7f7f',
-      'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 7, 1, 9, 2, 12, 4]
-    }
+      'line-color': '#5f5f5f',
+      'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 7, 0.5, 9, 1, 11, 2]
+    },
+    beforeId: 'highway_name_other'
   },
   {
     id: 'local-line',
@@ -94,9 +124,10 @@ const layers = [
     type: 'line',
     layout,
     paint: {
-      'line-color': '#7f7f7f',
-      'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 5, 1, 7, 2, 9, 4]
-    }
+      'line-color': '#5f5f5f',
+      'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 5, 0.5, 7, 1, 9, 2]
+    },
+    beforeId: 'highway_name_other'
   },
   {
     id: 'metro-line',
@@ -104,9 +135,10 @@ const layers = [
     type: 'line',
     layout,
     paint: {
-      'line-color': '#7f7f7f',
-      'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 5, 1, 7, 2, 9, 4]
-    }
+      'line-color': '#5f5f5f',
+      'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 5, 0.5, 7, 1, 9, 2]
+    },
+    beforeId: 'highway_name_other'
   },
   {
     id: 'province-line',
@@ -114,9 +146,10 @@ const layers = [
     type: 'line',
     layout,
     paint: {
-      'line-color': '#7f7f7f',
-      'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 5, 2, 7, 4]
-    }
+      'line-color': '#5f5f5f',
+      'line-width': ['interpolate', ['exponential', 1.41], ['zoom'], 5, 1, 7, 2]
+    },
+    beforeId: 'highway_name_other'
   }
 ]
 
