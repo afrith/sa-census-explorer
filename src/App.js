@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './App.css'
 import Map from './Map'
 import FeatureInfo from './FeatureInfo'
+import Legend from './Legend'
 
 function App () {
   const [hoverFeature, setHoverFeature] = useState()
@@ -18,6 +19,7 @@ function App () {
       </div>
       <div id='map'>
         <Map onHoverFeature={f => setHoverFeature(f)} />
+        <Legend />
       </div>
     </>
   )
