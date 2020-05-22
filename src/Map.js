@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import ReactMapGL, { Source, Layer, WebMercatorViewport } from 'react-map-gl'
 import queryString from 'query-string'
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -176,7 +176,7 @@ const updateHash = ({ longitude, latitude, zoom }) => {
   window.history.replaceState(null, null, newHash)
 }
 
-export default function Map () {
+export default function Map ({ onHoverFeature = () => {} }) {
   const [viewport, setViewport] = useState({})
   const [locationInitialised, setLocationInitialised] = useState(false)
 
@@ -195,6 +195,11 @@ export default function Map () {
     return () => { clearTimeout(timeout) }
   }, [viewport])
 
+  const handleMouseMove = useCallback(e => {
+    const feature = e.features && e.features.find(f => f.layer.id.endsWith('-fill'))
+    onHoverFeature(feature && { ...feature.properties, layer: feature.layer['source-layer'] })
+  }, [onHoverFeature])
+
   return (
     <ReactMapGL
       mapStyle='https://maptiles.frith.dev/styles/positron/style.json'
@@ -202,6 +207,7 @@ export default function Map () {
       width='100%'
       height='100%'
       onViewportChange={nextViewport => setViewport(nextViewport)}
+      onHover={handleMouseMove}
     >
       <Source id='census' type='vector' tiles={[`${process.env.REACT_APP_TILE_ROOT}/{z}/{x}/{y}.mvt`]} maxzoom={20}>
         {layers.map(l => <Layer key={l.id} {...l} />)}

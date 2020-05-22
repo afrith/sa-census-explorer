@@ -23,10 +23,7 @@
   right: 0;
 }
 
-#hint {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+.hint {
   font-style: italic;
   font-size: 85%;
 }
@@ -77,12 +74,12 @@
   display: none;
 }
 
-#placename {
+.placename {
   font-size: 150%;
   font-weight: bold;
 }
 
-#placetype {
+.placetype {
   font-style: italic;
 }
 
