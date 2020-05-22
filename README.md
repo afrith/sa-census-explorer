@@ -1,1 +1,1 @@
-This is a web map of information from the South African Census of 2011. It is deployed at https://censusmap.adrianfrith.com/.
+This is a web map of information from the South African Census of 2011. It uses vector map tiles provided by [`census-graphql-api`](https://github.com/afrith/census-graphql-api). It is deployed at https://censusmap.adrianfrith.com/.
